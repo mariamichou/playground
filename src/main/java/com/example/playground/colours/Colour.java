@@ -1,6 +1,6 @@
 package com.example.playground.colours;
 
-import com.example.playground.utils.Utils;
+import com.example.playground.helper.Utils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

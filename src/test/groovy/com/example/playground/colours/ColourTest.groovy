@@ -4,7 +4,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 import static com.example.playground.colours.Colour.*
-import static com.example.playground.utils.Utils.toSorted
+import static com.example.playground.helper.Utils.toSorted
 
 class ColourTest extends Specification {
 

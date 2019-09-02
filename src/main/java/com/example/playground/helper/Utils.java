@@ -1,4 +1,4 @@
-package com.example.playground.utils;
+package com.example.playground.helper;
 
 import lombok.extern.slf4j.Slf4j;
 
