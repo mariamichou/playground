@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.7.RELEASE'
+		springVersion = '5.1.9.RELEASE'
+		junitVersion = '5.5.1'
+		spockVersion = '1.3-groovy-2.5'
+	}
+}
+
+plugins {
+	id "org.springframework.boot" version "2.1.7.RELEASE"
+	id "io.franzbecker.gradle-lombok" version "1.14"
+	id 'com.adarshr.test-logger' version '1.1.2'
+	id "application"
+}
+
+group "com.example"
+version "1.0-SNAPSHOT"
+
+apply plugin: "java"
+apply plugin: "groovy"
+apply plugin: "idea"
+apply plugin: "application"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+mainClassName = "com.example.playground.PlaygroundApplication"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+lombok {
+	version = "1.18.8"
+	sha256 = ""
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile "org.springframework:spring-core:${springVersion}"
+	compile "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+	compile "org.apache.commons:commons-lang3:3.9"
+	compileOnly "org.projectlombok:lombok:${lombok.version}"
+
+	testCompile("org.assertj:assertj-core:3.13.2")
+	testCompile "org.codehaus.groovy:groovy-all:2.5.8"
+
+	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+	testCompile "org.springframework.boot:spring-boot-starter-validation:${springBootVersion}"
+
+	testCompile "org.spockframework:spock-core:${spockVersion}"
+	testCompile "org.spockframework:spock-spring:${spockVersion}"
+}
+
+test {
+	testLogging {
+		showStandardStreams = true
+	}
+}
